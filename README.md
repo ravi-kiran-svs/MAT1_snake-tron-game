@@ -14,11 +14,11 @@ This is a 2 player reimagination of the classic Snake game.
 
 ## POWER UPS
 
-**Score Multiplier ** : *YELLOW DIAMOND* = 2x score
+**Score Multiplier** : *YELLOW DIAMOND* = 2x score
 
-**Shield           ** : *BLUE   DIAMOND* = no death + biting leads to the snake cutting off
+**Shield**           : *BLUE   DIAMOND* = no death + biting leads to the snake cutting off
 
-**Speed Booster    ** : *RED    CROSS  * = 2x speed
+**Speed Booster**    : *RED    CROSS*   = 2x speed
 
 ## WINNING STRATEGY
 1. Prioritize increasing the length of your snake.

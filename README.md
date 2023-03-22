@@ -13,11 +13,12 @@ This is a 2 player reimagination of the classic Snake game.
 **Game Over** : Snake biting itself or the opponent snake loses the game.
 
 ## POWER UPS
-**Score Multiplier **: *YELLOW DIAMOND* = 2x score
 
-**Shield           **: *BLUE   DIAMOND* = no death + biting leads to the snake cutting off
+**Score Multiplier ** : *YELLOW DIAMOND* = 2x score
 
-**Speed Booster    **: *RED    CROSS  * = 2x speed
+**Shield           ** : *BLUE   DIAMOND* = no death + biting leads to the snake cutting off
+
+**Speed Booster    ** : *RED    CROSS  * = 2x speed
 
 ## WINNING STRATEGY
 1. Prioritize increasing the length of your snake.

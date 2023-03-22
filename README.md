@@ -3,6 +3,7 @@
 This is a 2 player reimagination of the classic Snake game.
 
 **Player 1** :  *Red* snake = move with **WSAD**
+
 **Player 2** : *Blue* snake = move with **Arrow keys**
 
 **Screen Wrapping** : Snakes can pass through the edges and appear on the other side.
@@ -13,7 +14,9 @@ This is a 2 player reimagination of the classic Snake game.
 
 ## POWER UPS
 **Score Multiplier **: *YELLOW DIAMOND* = 2x score
+
 **Shield           **: *BLUE   DIAMOND* = no death + biting leads to the snake cutting off
+
 **Speed Booster    **: *RED    CROSS  * = 2x speed
 
 ## WINNING STRATEGY

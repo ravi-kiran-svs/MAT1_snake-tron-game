@@ -167,39 +167,34 @@ public class Game : MonoBehaviour {
         }
     }
 
-    // making sure nothing is there on that square
     private void SpawnFood() {
-        int xRand = Random.Range(-8, 8);
-        int yRand = Random.Range(-8, 8);
+        Vector2 spawn = GetRandomSpawnPosition();
 
-        GameObject food = Instantiate(Food, new Vector2(xRand, yRand), Quaternion.identity);
+        GameObject food = Instantiate(Food, spawn, Quaternion.identity);
 
         eatables.Add(food.GetComponent<Food>());
     }
 
     private void SpawnScoreMult() {
-        int xRand = Random.Range(-8, 8);
-        int yRand = Random.Range(-8, 8);
+        Vector2 spawn = GetRandomSpawnPosition();
 
-        GameObject scoreMult = Instantiate(ScoreMult, new Vector2(xRand, yRand), ScoreMult.transform.rotation);
+        GameObject scoreMult = Instantiate(ScoreMult, spawn, ScoreMult.transform.rotation);
 
         eatables.Add(scoreMult.GetComponent<ScoreMult>());
     }
 
     private void SpawnShield() {
-        int xRand = Random.Range(-8, 8);
-        int yRand = Random.Range(-8, 8);
+        Vector2 spawn = GetRandomSpawnPosition();
 
-        GameObject shield = Instantiate(Shield, new Vector2(xRand, yRand), Shield.transform.rotation);
+        GameObject shield = Instantiate(Shield, spawn, Shield.transform.rotation);
 
         eatables.Add(shield.GetComponent<Shield>());
     }
 
     private void SpawnSpeedBooster() {
-        int xRand = Random.Range(-8, 8);
-        int yRand = Random.Range(-8, 8);
+        Vector2 spawn = GetRandomSpawnPosition();
 
-        GameObject speedBooster = Instantiate(SpeedBooster, new Vector2(xRand, yRand), Quaternion.identity);
+        GameObject speedBooster = Instantiate(SpeedBooster, spawn, Quaternion.identity);
 
         eatables.Add(speedBooster.GetComponent<SpeedBooster>());
     }
@@ -258,6 +253,52 @@ public class Game : MonoBehaviour {
         yield return new WaitForSeconds(time);
         snake.SetSpeedScale(1);
         splPowersUI.SetSpeedText(GetSnakeAsInt(snake), false);
+    }
+
+    private Vector2 GetRandomSpawnPosition() {
+        int num_occupants = 0;
+        num_occupants += redSnake.transform.childCount;
+        num_occupants += blueSnake.transform.childCount;
+        num_occupants += eatables.Count;
+        int num_avail_squares = 128 - num_occupants;
+
+        int spawn_pos = Random.Range(0, num_avail_squares);
+
+        int pos = 0;
+        while (spawn_pos >= 0) {
+            Vector3 posVec = new Vector2(pos % 16, pos / 16);
+            bool isEmpty = true;
+
+            for (int i = 0; i < redSnake.transform.childCount; i++) {
+                if (redSnake.transform.GetChild(0).position == posVec) {
+                    isEmpty = false;
+                }
+            }
+            if (isEmpty) {
+                for (int i = 0; i < blueSnake.transform.childCount; i++) {
+                    if (blueSnake.transform.GetChild(0).position == posVec) {
+                        isEmpty = false;
+                    }
+                }
+            }
+            if (isEmpty) {
+                for (int i = 0; i < eatables.Count; i++) {
+                    if (eatables[i].transform.position == posVec) {
+                        isEmpty = false;
+                    }
+                }
+            }
+
+            if (isEmpty) {
+                spawn_pos--;
+            }
+            if (spawn_pos >= 0) {
+                pos++;
+            }
+        }
+
+        return new Vector2(-8 + (pos % 16), -8 + (pos / 16));
+        //return Vector2.zero;
     }
 
 }

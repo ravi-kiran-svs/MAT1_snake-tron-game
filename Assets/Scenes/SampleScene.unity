@@ -1176,6 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 299829341}
   - component: {fileID: 299829342}
+  - component: {fileID: 299829343}
   m_Layer: 0
   m_Name: RedSnake
   m_TagString: Untagged
@@ -1217,6 +1218,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeBody: {fileID: 5373120361203705413, guid: daf2b471cfa899346b079586c175efe2, type: 3}
+--- !u!114 &299829343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299829340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ab29965cc54f44b86dd8f494c5b05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tSnake: 0.3
+  directionKeys: 77000000640000007300000061000000
+  hasFood: 0
+  scoreX: 1
+  hasShield: 0
+  speedScale: 1
 --- !u!1 &410816748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,6 +3387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1449470379}
   - component: {fileID: 1449470380}
+  - component: {fileID: 1449470381}
   m_Layer: 0
   m_Name: BlueSnake
   m_TagString: Untagged
@@ -3409,6 +3429,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeBody: {fileID: 4363297631281206830, guid: d12a72f446b07884d9cab964272d9f24, type: 3}
+--- !u!114 &1449470381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449470378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ab29965cc54f44b86dd8f494c5b05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tSnake: 0.3
+  directionKeys: 11010000130100001201000014010000
+  hasFood: 0
+  scoreX: 1
+  hasShield: 0
+  speedScale: 1
 --- !u!1 &1451701225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3553,6 +3591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455612775}
   - component: {fileID: 1455612776}
+  - component: {fileID: 1455612777}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -3584,14 +3623,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455612774}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d956e98a1fb70354eac686032daaca40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   redSnake: {fileID: 299829342}
   blueSnake: {fileID: 1449470380}
-  ui: {fileID: 2026396896}
+  overlayMenus: {fileID: 2026396896}
   scoreUI: {fileID: 54447282}
   splPowersUI: {fileID: 54447283}
   Food: {fileID: 1239447365299859726, guid: 2e9f7c67aa487d244979b36aff87d72a, type: 3}
@@ -3601,6 +3640,23 @@ MonoBehaviour:
   tSnake: 0.3
   tFoodSpawn: 0.5
   tSplSpawn: 5
+--- !u!114 &1455612777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455612774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b3e456a585e2244b4f3671492e71a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardDimensions: {x: 16, y: 16}
+  snakes:
+  - {fileID: 299829343}
+  - {fileID: 1449470381}
+  overlayMenus: {fileID: 2026396896}
 --- !u!1 &1676171942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4407,7 +4463,7 @@ GameObject:
   - component: {fileID: 2026396895}
   - component: {fileID: 2026396896}
   m_Layer: 5
-  m_Name: UIUI
+  m_Name: OverlayMenus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

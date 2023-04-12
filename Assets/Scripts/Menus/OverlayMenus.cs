@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIUI : MonoBehaviour {
+public class OverlayMenus : MonoBehaviour {
 
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject gameOverScreen;

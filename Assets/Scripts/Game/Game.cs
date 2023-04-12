@@ -6,7 +6,7 @@ public class Game : MonoBehaviour {
 
     [SerializeField] Snake redSnake;
     [SerializeField] Snake blueSnake;
-    [SerializeField] UIUI ui;
+    [SerializeField] OverlayMenus overlayMenus;
 
     [SerializeField] ScoreUI scoreUI;
     [SerializeField] SplPowersUI splPowersUI;
@@ -103,7 +103,7 @@ public class Game : MonoBehaviour {
                     snake.ShedSkin(i);
 
                 } else {
-                    ui.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
+                    overlayMenus.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
                 }
             }
         }
@@ -113,14 +113,14 @@ public class Game : MonoBehaviour {
             if (headPos == (Vector2)GetOtherSnake(snake).transform.GetChild(i).position) {
                 if (snake.HasShield()) {
                     if (i == 0) {
-                        ui.GameOver(GetSnakeAsInt(snake));
+                        overlayMenus.GameOver(GetSnakeAsInt(snake));
 
                     } else {
                         GetOtherSnake(snake).ShedSkin(i);
                     }
 
                 } else {
-                    ui.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
+                    overlayMenus.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
                 }
             }
         }

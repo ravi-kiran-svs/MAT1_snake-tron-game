@@ -7,8 +7,8 @@ public class GameMaster : MonoBehaviour {
 
     [SerializeField] private Vector2 boardDimensions = new Vector2(16, 16);
 
-    [SerializeField] SnakeMovement[] snakes;
-    [SerializeField] OverlayMenus overlayMenus;
+    [SerializeField] private SnakeMovement[] snakes;
+    [SerializeField] private OverlayMenus overlayMenus;
 
     private void Awake() {
         foreach (SnakeMovement snake in snakes) {
@@ -42,5 +42,7 @@ public class GameMaster : MonoBehaviour {
     }
 
     public Vector2 GetBoardDimensions() { return boardDimensions; }
+
+    public SnakeMovement[] GetSnakes() { return snakes; }
 
 }

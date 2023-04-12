@@ -126,7 +126,7 @@ public class Game : MonoBehaviour {
         }
 
         // checking if snake eats any food
-        foreach (Eatable eatable in eatables) {
+        /*foreach (Eatable eatable in eatables) {
             if (headPos == (Vector2)eatable.transform.position) {
                 eatables.Remove(eatable);
                 Destroy(eatable.gameObject);
@@ -164,7 +164,7 @@ public class Game : MonoBehaviour {
 
                 break;
             }
-        }
+        }*/
     }
 
     private void SpawnFood() {
@@ -256,7 +256,7 @@ public class Game : MonoBehaviour {
     }
 
     private Vector2 GetRandomSpawnPosition() {
-        int num_occupants = 0;
+        /*int num_occupants = 0;
         num_occupants += redSnake.transform.childCount;
         num_occupants += blueSnake.transform.childCount;
         num_occupants += eatables.Count;
@@ -297,8 +297,8 @@ public class Game : MonoBehaviour {
             }
         }
 
-        return new Vector2(-8 + (pos % 16), -8 + (pos / 16));
-        //return Vector2.zero;
+        return new Vector2(-8 + (pos % 16), -8 + (pos / 16));*/
+        return Vector2.zero;
     }
 
 }

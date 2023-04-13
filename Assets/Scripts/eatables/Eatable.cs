@@ -2,5 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Eatable : MonoBehaviour {
+public abstract class Eatable : MonoBehaviour {
+    public abstract IEnumerator OnConsume(SnakeExtras snake);
 }

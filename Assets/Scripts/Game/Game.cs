@@ -6,7 +6,7 @@ public class Game : MonoBehaviour {
 
     [SerializeField] Snake redSnake;
     [SerializeField] Snake blueSnake;
-    [SerializeField] UIUI ui;
+    [SerializeField] OverlayMenus overlayMenus;
 
     [SerializeField] ScoreUI scoreUI;
     [SerializeField] SplPowersUI splPowersUI;
@@ -103,7 +103,7 @@ public class Game : MonoBehaviour {
                     snake.ShedSkin(i);
 
                 } else {
-                    ui.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
+                    overlayMenus.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
                 }
             }
         }
@@ -113,20 +113,20 @@ public class Game : MonoBehaviour {
             if (headPos == (Vector2)GetOtherSnake(snake).transform.GetChild(i).position) {
                 if (snake.HasShield()) {
                     if (i == 0) {
-                        ui.GameOver(GetSnakeAsInt(snake));
+                        overlayMenus.GameOver(GetSnakeAsInt(snake));
 
                     } else {
                         GetOtherSnake(snake).ShedSkin(i);
                     }
 
                 } else {
-                    ui.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
+                    overlayMenus.GameOver(GetSnakeAsInt(GetOtherSnake(snake)));
                 }
             }
         }
 
         // checking if snake eats any food
-        foreach (Eatable eatable in eatables) {
+        /*foreach (Eatable eatable in eatables) {
             if (headPos == (Vector2)eatable.transform.position) {
                 eatables.Remove(eatable);
                 Destroy(eatable.gameObject);
@@ -164,7 +164,7 @@ public class Game : MonoBehaviour {
 
                 break;
             }
-        }
+        }*/
     }
 
     private void SpawnFood() {
@@ -256,7 +256,7 @@ public class Game : MonoBehaviour {
     }
 
     private Vector2 GetRandomSpawnPosition() {
-        int num_occupants = 0;
+        /*int num_occupants = 0;
         num_occupants += redSnake.transform.childCount;
         num_occupants += blueSnake.transform.childCount;
         num_occupants += eatables.Count;
@@ -297,8 +297,8 @@ public class Game : MonoBehaviour {
             }
         }
 
-        return new Vector2(-8 + (pos % 16), -8 + (pos / 16));
-        //return Vector2.zero;
+        return new Vector2(-8 + (pos % 16), -8 + (pos / 16));*/
+        return Vector2.zero;
     }
 
 }

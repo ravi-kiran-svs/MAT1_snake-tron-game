@@ -3740,6 +3740,8 @@ MonoBehaviour:
   ScoreMult: {fileID: 7008350830381190173, guid: ea90173f8eaa41e4caab44b8ee6c3314, type: 3}
   Shield: {fileID: 6512310520306385645, guid: b7ae76f1cd24c714a99bdddff6f74631, type: 3}
   SpeedBooster: {fileID: 2801381916056125275, guid: 446ca60354755534f893f70206b85da3, type: 3}
+  tFoodSpawn: 0.5
+  tSplSpawn: 5
 --- !u!1 &1676171942
 GameObject:
   m_ObjectHideFlags: 0

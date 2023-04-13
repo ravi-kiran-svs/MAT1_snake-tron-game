@@ -11,14 +11,25 @@ public class EatableSpawner : MonoBehaviour {
     [SerializeField] GameObject Shield;
     [SerializeField] GameObject SpeedBooster;
 
+    [SerializeField] private float tFoodSpawn = 1;
+    [SerializeField] private float tSplSpawn = 5;
+
     private List<Eatable> eatables = new();
 
     private void Awake() {
         master = GetComponent<GameMaster>();
     }
 
-    //delete later
-    private void Update() {
+    private IEnumerator Start() {
+        yield return new WaitForSeconds(tFoodSpawn * 2);
+        SpawnFood();
+
+        yield return new WaitForSeconds(tSplSpawn);
+        SpawnScoreMult();
+    }
+
+    // only for testing purposes
+    /*private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             SpawnFood();
         }
@@ -34,12 +45,20 @@ public class EatableSpawner : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftAlt)) {
             SpawnSpeedBooster();
         }
-    }
+    }*/
 
     public Eatable GetAnyEatableAt(Vector2 p) {
         foreach (Eatable eatable in eatables) {
             if (p == (Vector2)eatable.transform.position) {
                 eatables.Remove(eatable);
+
+                if (eatable is Food) {
+                    StartCoroutine(OnFoodEaten());
+
+                } else if (eatable is SplEatable) {
+                    StartCoroutine(OnSplEaten());
+                }
+
                 return eatable;
             }
         }
@@ -76,6 +95,28 @@ public class EatableSpawner : MonoBehaviour {
         GameObject speedBooster = Instantiate(SpeedBooster, spawn, Quaternion.identity);
 
         eatables.Add(speedBooster.GetComponent<SpeedBooster>());
+    }
+
+    private IEnumerator OnFoodEaten() {
+        yield return new WaitForSeconds(tFoodSpawn);
+        SpawnFood();
+    }
+
+    private IEnumerator OnSplEaten() {
+        yield return new WaitForSeconds(tSplSpawn);
+
+        int x = Random.Range(0, 3);
+
+        if (x == 0) {
+            SpawnScoreMult();
+
+        } else if (x == 1) {
+            SpawnShield();
+
+        } else if (x == 2) {
+            SpawnSpeedBooster();
+        }
+
     }
 
     private Vector2 GetRandomSpawnPosition() {
